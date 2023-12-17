@@ -1,0 +1,54 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Prime checker API",
+        "version": "1.0.0",
+        "description": "Prime checker API"
+    },
+    "paths": {
+        "/is_prime": {
+            "post": {
+                "summary": "Checks if a number is prime",
+                "description": "Checks if a number is prime",
+                "operationId": "isPrime",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "number": {
+                                        "type": "string",
+                                        "description": "number to check"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "isPrime": {
+                                            "type": "boolean",
+                                            "description": "true if the number is prime, false otherwise"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request. One or more required fields are missing or invalid."
+                    }
+                }
+            }
+        }
+    }
+}
