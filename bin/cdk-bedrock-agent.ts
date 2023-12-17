@@ -1,6 +1,12 @@
 #!/usr/bin/env node
 import * as cdk from 'aws-cdk-lib';
-import { CdkBedrockAgentStack } from '../lib/cdk-bedrock-agent-stack';
+import { AgentStack } from '../lib/agentStack';
+
+const env = {
+    region: 'us-east-1',
+    account: process.env.CDK_DEFAULT_ACCOUNT,
+};
 
 const app = new cdk.App();
-new CdkBedrockAgentStack(app, 'CdkBedrockAgentStack');
+
+const agentStack = new AgentStack(app, 'AgentStack', {env});
